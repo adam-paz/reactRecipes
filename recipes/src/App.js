@@ -14,12 +14,12 @@ class App extends Component {
             <Row>
               <Col xs={4} xsOffset={4} id="headerCol">
                 <Nav>
-                  <h1>OraCooking</h1>
+                  <a href = "/"><h1 className="title">OraCooking</h1></a>
                 </Nav>
               </Col>
             </Row>
             <Row>
-              <Col xs={6} xsOffset={3}>
+              <Col xs={8} xsOffset={2}>
                 <Recipe/>
               </Col>
             </Row>

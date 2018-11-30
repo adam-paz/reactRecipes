@@ -18,6 +18,10 @@
     font-family: cursive;
 }
 
+.title {
+    color: white;
+}
+
 .container {
     height: 1000px;
     width: 100%;
@@ -32,10 +36,6 @@ input {
 .card {
     width: 90%;
     border-radius: 50px;
-}
-
-.card-li {
-    padding: 5px;
 }
 
 .card {

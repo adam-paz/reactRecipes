@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 
 class Recipe extends Component {
     state = {
         ingredient: "",
-        from:0,
-        to:5
+        from: 0,
+        to: 5
     }
 
     ingredientInput = input => this.setState({ ingredient: input.target.value });
@@ -34,25 +34,26 @@ class Recipe extends Component {
     render() {
         return (
             <div>
-                <div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="What will you make today?"
-                        name="search"
-                        className="searchBar"
-                        value={this.state.ingredient}
-                        onChange={this.ingredientInput}
-                    >
-                    </input>
-                    <Button bsStyle="primary" onClick={() => this.findRecipes()}>SEARCH</Button>
-                    <br></br>
+                <Row>
+                    <div className="search-container">
+                        <input
+                            type="text"
+                            placeholder="What will you make today?"
+                            name="search"
+                            value={this.state.ingredient}
+                            onChange={this.ingredientInput}
+                        >
+                        </input>
+                        <Button bsStyle="primary" onClick={() => this.findRecipes()}>SEARCH</Button>
+                        <br></br>
 
-
+           
                 </div>
-
+                </Row>
+                <Row>
                 {
                     this.state.recipes &&
-                    <div className= "cardWrapper">
+                    <div className="cardWrapper">
                         {
                             this.state.recipes.map((recipes, index) => (
                                 <div key={index} className="card">
@@ -66,6 +67,7 @@ class Recipe extends Component {
                         }
                     </div>
                 }
+                </Row>
             </div>
         )
 
