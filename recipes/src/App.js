@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import bg from './public/bg.jpg'
 import './App.css';
+import { Grid, Col, Row, Nav } from 'react-bootstrap';
+import Recipe from './Recipe.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="main"  >
+        <div className="container">
+          <Grid fluid>
+            {/* Header Section */}
+            <Row>
+              <Col xs={4} xsOffset={4} id="headerCol">
+                <Nav>
+                  <h1>OraCooking</h1>
+                </Nav>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={6} xsOffset={3}>
+                <Recipe/>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
       </div>
     );
   }
