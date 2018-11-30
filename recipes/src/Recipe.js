@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Row } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 
 class Recipe extends Component {
     state = {
@@ -10,6 +10,11 @@ class Recipe extends Component {
     }
 
     ingredientInput = input => this.setState({ ingredient: input.target.value });
+
+    shareText = ()=>{
+
+    }
+
 
     findRecipes = () => {
         const auth = {
@@ -24,7 +29,9 @@ class Recipe extends Component {
                     const results = response.data.hits;
                     console.log(results);
                     this.setState({
-                        recipes: results
+                        recipes: results,
+                        from:this.state.from +5, 
+                        to:this.state.to +5
                     });
                 },
                 error => this.setState({ error: 'could not retrieve recipe info' })
@@ -35,38 +42,59 @@ class Recipe extends Component {
         return (
             <div>
                 <Row>
-                    <div className="search-container">
-                        <input
-                            type="text"
-                            placeholder="What will you make today?"
-                            name="search"
-                            value={this.state.ingredient}
-                            onChange={this.ingredientInput}
-                        >
-                        </input>
-                        <Button bsStyle="primary" onClick={() => this.findRecipes()}>SEARCH</Button>
-                        <br></br>
+                    <Col xs={6} xsOffset={3}>
+                        <div className="search-container">
+                            <input
+                                type="text"
+                                placeholder="What will you make today?"
+                                name="search"
+                                className="searchBar"
+                                value={this.state.ingredient}
+                                onChange={this.ingredientInput}
+                            >
+                            </input>
+                            <Button bsStyle="info" className="searchBtn" onClick={() => this.findRecipes()}>SEARCH</Button>
+                            <br></br>
 
-           
-                </div>
+
+                        </div>
+                    </Col>
                 </Row>
                 <Row>
-                {
-                    this.state.recipes &&
-                    <div className="cardWrapper">
+                    <Col xs={9} xsOffset={1}>
                         {
-                            this.state.recipes.map((recipes, index) => (
-                                <div key={index} className="card">
-                                    <label>{recipes.recipe.label}</label>
-                                    <a href={recipes.recipe.url} >
-                                        <img src={recipes.recipe.image}></img>
-                                    </a>
-                                </div>
+                            this.state.recipes &&
+                            <div className="cardWrapper">
+                                {
+                                    this.state.recipes.map((recipes, index) => (
+                                        <div key={index} className="cardTop" >
+                                        <a href={recipes.recipe.url} target="_blank">
+                                                <img src={recipes.recipe.image} className="cardImage"></img>
+                                            </a>
+                                            <label>{recipes.recipe.label}</label>
+                                            <div className="cardBtm ">
+                                                <label>Ingredients</label>
+                                                <ul className="tooltiptext">
+                                                {        
+                                                    recipes.recipe.ingredientLines.map((ingredient, index) => (
+                                                            <li key={index}> {ingredient}</li>
+                                                    ))
+                                                }
+                                                </ul>
+                                            </div>
+                                        </div>
 
-                            ))
+                                    ))
+                                }
+                                <Button 
+                                bsStyle="success" 
+                                className="moreBtn"
+                                onClick={()=> this.findRecipes()}
+                                >Show More</Button>
+                            </div>
+                                
                         }
-                    </div>
-                }
+                    </Col>
                 </Row>
             </div>
         )
