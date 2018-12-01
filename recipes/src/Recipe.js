@@ -12,7 +12,26 @@ class Recipe extends Component {
     ingredientInput = input => this.setState({ ingredient: input.target.value });
 
     shareText = ()=>{
-
+        // const auth = {
+        //     username: 'jill.z.meyerz@oracle.com',
+        //     password: 'cloud00Cloud'
+        // };
+        
+        // const url = `https://Integration999754-meyerzz.integration.ocp.oraclecloud.com:443/ic/api/integration/v1/flows/rest/FROMRESTTOTWILIO/1.0/app`;
+        // axios.post(url, {
+        //     request:[{
+        //         to:+13108697473, 
+        //         body:"HEY THERE"
+        //     }], auth
+        // })
+        //     .then(
+        //         response => {
+        //             const results = response.data.hits;
+        //             console.log(results);
+                    
+        //         },
+        //         error => this.setState({ error: 'could not retrieve recipe info' })
+        //     )
     }
 
 
@@ -42,7 +61,7 @@ class Recipe extends Component {
         return (
             <div>
                 <Row>
-                    <Col xs={6} xsOffset={3}>
+                    <Col md={10} mdOffset={1}>
                         <div className="search-container">
                             <input
                                 type="text"
@@ -53,7 +72,7 @@ class Recipe extends Component {
                                 onChange={this.ingredientInput}
                             >
                             </input>
-                            <Button bsStyle="info" className="searchBtn" onClick={() => this.findRecipes()}>SEARCH</Button>
+                            <Button className="searchBtn searchBtn2" onClick={() => this.findRecipes()}>SEARCH</Button>
                             <br></br>
 
 
@@ -77,7 +96,9 @@ class Recipe extends Component {
                                                 <ul className="tooltiptext">
                                                 {        
                                                     recipes.recipe.ingredientLines.map((ingredient, index) => (
-                                                            <li key={index}> {ingredient}</li>
+                                                        <div key={index} >
+                                                            <li > {ingredient}</li>
+                                                        </div>
                                                     ))
                                                 }
                                                 </ul>

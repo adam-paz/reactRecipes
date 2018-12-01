@@ -83,16 +83,28 @@ input {
 }
 
 .searchBar {
-    width: 90%;
+    width: 85%;
     border-radius: 15px;
-    height: 40px;
+    /* height: 100%; */
+    min-height: 40px;
 }
 
 .searchBtn {
     border-radius: 15px;
     margin: 5px;
+    width: 7%;
     height: 40px;
     background-color: black;
+    min-width: 80px;
+}
+
+@media (max-width:970px) {
+    .searchBtn {
+        margin-left: 45%;
+    }
+    .searchBar {
+        margin-left: 50px;
+    }
 }
 
 .moreBtn {
@@ -128,4 +140,13 @@ input {
 
 .cardBtm:hover .tooltiptext {
     visibility: visible;
+}
+
+#shareBtn {
+    border-bottom-right-radius: 25px;
+    background-color: lightskyblue;
+    float: right;
+    padding-bottom: 12px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
