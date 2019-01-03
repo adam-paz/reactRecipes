@@ -1,3 +1,5 @@
+/* Styling for the overall page and structure */
+
 body {
     overflow: hidden;
 }
@@ -26,6 +28,13 @@ body {
     color: white;
 }
 
+
+/* over riding the scroll on one of the container divs */
+
+#container1 {
+    overflow: hidden;
+}
+
 .container {
     height: 1000px;
     width: 100%;
@@ -33,14 +42,16 @@ body {
     overflow: scroll;
 }
 
-input {
-    color: black;
-    padding-left: 20px;
-}
 
-.card {
-    width: 90%;
-    border-radius: 50px;
+/* Styling for the card */
+
+.cardWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 10px;
 }
 
 .fullCard {
@@ -50,41 +61,36 @@ input {
 .cardTop {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 250px;
-    height: 325px;
-    margin: 10px;
+    margin: 8px;
     text-align: center;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 25px;
     background-color: white !important;
     color: black;
     font-family: 'Playfair Display SC', serif;
     font-size: 18px;
 }
 
+.cardImage {
+    max-width: 250px;
+}
+
 .cardBtm {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 250px;
-    height: 50px;
+    height: 40px;
     text-align: center;
+    padding-top: 30000px;
     background-color: white !important;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     color: black;
-    border-top: black;
     padding-top: 10px;
     font-family: cursive;
     font-size: 18px;
 }
 
-.cardWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin: 10px;
-    /* height: 100px; */
-}
+
+/* Styling for search bar and search button */
 
 .searchBar {
     min-width: 100%;
@@ -92,9 +98,9 @@ input {
     border: none;
     padding: 0px;
     margin: 0px;
-    /* height: 100%; */
     min-height: 40px;
     padding-left: 10px;
+    color: black;
 }
 
 .searchBtn {
@@ -106,18 +112,8 @@ input {
     min-width: 80px;
 }
 
-.buttonWrapper {}
 
-.moreBtn {
-    border-radius: 15px;
-    vertical-align: inherit;
-    height: 40px;
-    background-color: black;
-}
-
-.cardImage {
-    max-width: 250px;
-}
+/* styling for the ingredients tooltip */
 
 .tooltiptext {
     visibility: hidden;
@@ -143,11 +139,48 @@ input {
     visibility: visible;
 }
 
-#shareBtn {
-    border-bottom-right-radius: 25px;
-    background-color: lightskyblue;
-    float: right;
-    padding-bottom: 12px;
+.cardBtm:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+/* Styling for the share button */
+
+.cardTop button {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+    border-radius: 15px;
+    width: 250px;
+    height: 40px;
+    margin-bottom: -30px;
+    padding-bottom: 30px;
+}
+
+.cardTop input {
+    width: 100%;
+}
+
+#shareSubmit {
+    background-color: rgb(65, 145, 172);
+    border: none;
+    margin: 5px;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 30%;
+    padding: 2px;
+    height: 15%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+/* styling for the green show more button */
+
+.moreBtn {
+    border-radius: 15px;
+    vertical-align: inherit;
+    height: 40px;
+    background-color: black;
 }
