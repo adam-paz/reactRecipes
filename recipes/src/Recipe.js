@@ -27,14 +27,17 @@ class Recipe extends Component {
 
         };
         const url = `https://demo-demomeetup.integration.ocp.oraclecloud.com:443/ic/api/integration/v1/flows/rest/REACTSHARE/1.0/recipe`;
-        axios.post(url, {
+        axios.post(url,
+            {
                 email: this.state.email,
-                phone: "+1" + this.state.phone,
+                phone: "+1"+this.state.phone,
                 label: label,
                 body: "Here's a recipe from OraCooking: " + uri
-            }, {
+            },
+            {
                 auth: authorization
-            })
+            }
+        )
             .then(
                 response => {
                     const results = response.data.hits;
@@ -72,74 +75,41 @@ class Recipe extends Component {
     }
 
     render() {
-        return ( <
-            div >
-            <
-            Row >
-            <
-            Col className = "search-container"
-            lg = { 7 }
-            lgOffset = { 2 }
-            md = { 9 }
-            mdOffset = { 1 }
-            sm = { 10 }
-            smOffset = { 1 }
-            xs = { 10 }
-            xsOffset = { 1 } >
-            <
-            input type = "text"
-            placeholder = "What will you make today?"
-            name = "search"
-            className = "searchBar"
-            value = { this.state.ingredient }
-            onChange = { this.ingredientInput } >
-            <
-            /input> <
-            /Col> <
-            Col lg = { 2 }
-            lgOffset = { 0 }
-            md = { 1 }
-            mdOffset = { 0 }
-            sm = { 10 }
-            smOffset = { 5 }
-            xs = { 10 }
-            xsOffset = { 4 } >
-            <
-            Button className = "searchBtn searchBtn2"
-            onClick = {
-                () => this.findRecipes() } > SEARCH < /Button> <
-            /Col> <
-            /Row>
+        return (
+            <div>
+                <Row>
+                    <Col className="search-container" lg={7} lgOffset={2} md={9} mdOffset={1} sm={10} smOffset={1} xs={10} xsOffset={1}>
+                        <input
+                            type="text"
+                            placeholder="What will you make today?"
+                            name="search"
+                            className="searchBar"
+                            value={this.state.ingredient}
+                            onChange={this.ingredientInput}
+                        >
+                        </input>
+                    </Col>
+                    <Col lg={2} lgOffset={0} md={1} mdOffset={0} sm={10} smOffset={5} xs={10} xsOffset={4}>
+                        <Button className="searchBtn searchBtn2" onClick={() => this.findRecipes()}>SEARCH</Button>
+                    </Col>
+                </Row>
 
 
 
-            <
-            Row className = "cardWrapper" >
-            <
-            Cards recipes = { this.state.recipes }
-            /> <
-            /Row>
+                <Row className="cardWrapper" >
+                    <Cards recipes = {this.state.recipes}/>
+                </Row>
 
-            <
-            Row >
-            <
-            Col lg = { 2 }
-            lgOffset = { 5 }
-            md = { 1 }
-            mdOffset = { 0 }
-            sm = { 10 }
-            smOffset = { 5 }
-            xs = { 10 }
-            xsOffset = { 4 } >
-            <
-            Button bsStyle = "success"
-            className = "moreBtn"
-            onClick = {
-                () => this.findRecipes() } >
-            Show More < /Button> <
-            /Col> <
-            /Row> <
-            /div>
+                <Row>
+                    <Col lg={2} lgOffset={5} md={1} mdOffset={0} sm={10} smOffset={5} xs={10} xsOffset={4}>
+                        <Button
+                            bsStyle="success"
+                            className="moreBtn"
+                            onClick={() => this.findRecipes()}
+                        >Show More</Button>
+                    </Col>
+                </Row>
+            </div>
         )
 
     }
