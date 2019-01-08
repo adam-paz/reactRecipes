@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import Cards from './Cards.js'
-// import findRecipe from './findRecipes.js' 
+import data from './test.json'
 
 
 class Recipe extends Component {
@@ -22,8 +22,8 @@ class Recipe extends Component {
     findRecipes = () => {
         // Here is our Axios Call for the edamam api
         const auth = { //This is our authentication for our api
-            username: 'kseniya0213@gmail.com',
-            password: 'test00test'
+            username: data.usernameEdamam,
+            password: data.passwordEdamam
         };
         const url = `https://api.edamam.com/search?q=${this.state.ingredient}&app_id=c3fb0406&app_key=75148353e31b6a420a1e1d9ff3d43a5e&from=${this.state.from}&to=${this.state.to}`;
         //This is a paramater for the axios call also, this is the url for the api. It is like the access point
