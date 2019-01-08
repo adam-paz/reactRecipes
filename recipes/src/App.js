@@ -15,13 +15,12 @@ class App extends Component {
             {/* Header Section */}
             <Row>
               <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={4} smOffset={4}  xs={4}  xsOffset={3} id="headerCol">
-                <Nav>
                   {/* TITLE */}
                   <a href = "/"><h1 className="title">OraCooking</h1></a>
-                </Nav>
               </Col>
             </Row>
-               
+
+               {/* Call the Recipe Component */}
                 <Recipe/>
 
           </Grid>

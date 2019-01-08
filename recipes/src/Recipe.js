@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Row, Col, Form } from 'react-bootstrap';
+import { Button, Row, Col} from 'react-bootstrap';
 import Cards from './Cards.js'
 import data from './auth.json'
 
@@ -10,9 +10,7 @@ class Recipe extends Component {
     state = {
         ingredient: "",
         from: 0,
-        to: 5,
-        email: "",
-        phone: ""
+        to: 5
     }
 
     ingredientInput = input => this.setState({ ingredient: input.target.value });
@@ -20,13 +18,15 @@ class Recipe extends Component {
 // This is our api call to Edamam. Edamam provides information about a recipe such as the ingredients and a url to the recipe
 
     findRecipes = () => {
-        // Here is our Axios Call for the edamam api
+        // Here is our Axios Call for the edamam api, Axios is a package that makes making http calls easier.
         const auth = { //This is our authentication for our api
             username: data.usernameEdamam,
             password: data.passwordEdamam
         };
-        const url = `https://api.edamam.com/search?q=${this.state.ingredient}&app_id=c3fb0406&app_key=75148353e31b6a420a1e1d9ff3d43a5e&from=${this.state.from}&to=${this.state.to}`;
+        
         //This is a paramater for the axios call also, this is the url for the api. It is like the access point
+        const url = `https://api.edamam.com/search?q=${this.state.ingredient}&app_id=c3fb0406&app_key=75148353e31b6a420a1e1d9ff3d43a5e&from=${this.state.from}&to=${this.state.to}`;
+        
         axios.get(url, auth)
             .then(
                 response => {
@@ -61,12 +61,14 @@ class Recipe extends Component {
                     </Col>
                     <Col lg={2} lgOffset={0} md={1} mdOffset={0} sm={10} smOffset={5} xs={10} xsOffset={4}>
                         {/* Button to call the Edamam API */}
-                        <Button className="searchBtn searchBtn2" onClick={() => this.findRecipes()}>SEARCH</Button>
+                        <Button className="searchBtn" onClick={() => this.findRecipes()}>SEARCH</Button>
                     </Col>
                 </Row>
                 <Row className="cardWrapper" >
+
                     {/* Calling our cards componenent and passing it the information to recipes. */}
                     <Cards recipes = {this.state.recipes}/>
+
                 </Row>
 
                 <Row>

@@ -25,7 +25,6 @@ class Cards extends Component {
 
     shareRecipe = (label, uri) => {
         const url = `https://demo-demomeetup.integration.ocp.oraclecloud.com:443/ic/api/integration/v1/flows/rest/REACTSHARE/1.0/recipe`;
-
         axios.post(url,
             {
                 email: this.state.email,
@@ -53,9 +52,8 @@ class Cards extends Component {
     render() {
         return (
             <div>
-                {
-                    
-                    this.props.recipes &&
+                { 
+                   this.props.recipes && //If no value for this.props.recipes then dont generate the following. 
                     <Col lg={15} md={15} sm={15} xs={15} >
                         {
                             this.props.recipes.map((recipes, index) => (
