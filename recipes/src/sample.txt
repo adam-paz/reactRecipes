@@ -1,0 +1,26 @@
+
+    const url = `https://demo-demomeetup.integration.ocp.oraclecloud.com:443/ic/api/integration/v1/flows/rest/REACTSHARE/1.0/recipe`;
+
+    axios.post(url,
+        {
+            email: this.state.email,
+            phone: "+1" + this.state.phone,
+            label: label,
+            body: "Here's a recipe from OraCooking: " + url
+        },
+        {
+            auth: authorization
+        }
+    )
+        .then(
+            response => {
+                const results = response.data.hits;
+                console.log(response);
+
+            },
+            error => {
+                this.setState({ error: 'could not retrieve recipe info' });
+                console.log(error);
+            }
+        )
+
