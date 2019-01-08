@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import Cards from './Cards.js'
-import data from './test.json'
+import data from './auth.json'
 
 
 class Recipe extends Component {

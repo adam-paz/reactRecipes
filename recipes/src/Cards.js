@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import Popup from 'reactjs-popup'
-import data from './test.json'
+import data from './auth.json'
 
 const authorization = {
     username: data.username,
