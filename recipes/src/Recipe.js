@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
-import Popup from 'reactjs-popup'
 import Cards from './Cards.js'
 // import findRecipe from './findRecipes.js' 
 

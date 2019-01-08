@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import bg from './public/bk.png'
 import './App.css';
 import { Grid, Col, Row, Nav } from 'react-bootstrap';
 import Recipe from './Recipe.js'

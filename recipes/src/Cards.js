@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import Popup from 'reactjs-popup'
-import popupShare from './Popup';
-import data from './Credentials.json'
+
 
 const authorization = {
     username: 'jillz',
